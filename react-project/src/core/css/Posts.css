@@ -1,0 +1,32 @@
+.postlist {
+    list-style: none;
+
+}
+.myposts {
+    max-width: 800px;
+    padding: 0 0.625em;
+    padding-bottom: 40px;
+    border: 2px solid #FFFFFF;
+    margin: 1em auto;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px black;
+    transition: 0.8s;
+    background-color: #242424;
+}
+.myposts:hover {
+    transform: scale(1.02);
+}
+.verified {
+    margin: -7px 10px;
+}
+.admin-user-badge {
+    display: flex;
+    float: left;
+}
+.admin-user-badge .adminpfp {
+    border-radius: 50%;
+    width: 10%;
+}
+.admin-user-badge p {
+    margin: 0 10px;
+}

@@ -1,0 +1,15 @@
+.createPost {
+    margin: 0 auto;
+    align-content: center;
+    justify-content: center;
+}
+.createPost h1 {
+    text-align: center;
+}
+.createPost .sometext {
+    text-align: center;
+}
+.createPost input[type=text], textarea, button {
+    display: flex;
+    margin: 0 auto;
+}

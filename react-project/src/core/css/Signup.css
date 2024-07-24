@@ -1,0 +1,22 @@
+.loginform {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+.loginform h1 {
+    text-align: center;
+}
+.loginform input .passwd {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+.loginform .loginInst {
+    font-size: 14px;
+    font-weight: 300;
+}
+.loginform .loginInst:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}

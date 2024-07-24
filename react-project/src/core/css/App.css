@@ -1,0 +1,90 @@
+#root {
+  max-width: 1280px;
+  padding: 1.3rem;
+  margin: 0 auto;
+}
+
+#bg {
+  margin: 0 auto;
+  border-radius: 25px;
+  width: auto;
+  height: 100%;
+  padding: 0.625em 0.625em;
+  background-color:#242a2e;
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.myprofile {
+  display: flex;
+  padding: 0.625em;
+}
+.myprofile .pfp {
+  border-radius: 50%;
+  float: left;
+  height: auto;
+  width: auto;
+}
+.banner {
+  margin: 0 auto;
+  border-radius: 12px;
+  width: 100%;
+}
+.myprofile p {
+  margin: 0 1em;
+}
+.myprofile span.namename {
+  font-size: 2em;
+}
+.contactInfo {
+  margin-left: 350px;
+}
+.contactInfo svg {
+  margin-right: 20px;
+  transition: 0.56s;
+}
+.contactInfo svg:hover {
+  filter: drop-shadow(0 0 20px #5e66f55b);
+}
+.followBtn {
+  border-radius: 10px;
+  height: 2.3em;
+  margin: auto 0;
+  background-color: transparent;
+  font-family: 'Lucida Sans', Arial;
+}
+.tab {
+  overflow: hidden;
+}
+.tab ul {
+  list-style: none;
+}
+.tab li {
+  float: left;
+  background-color: inherit;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+.tab li:hover {
+  text-decoration: underline;
+  transform: scale(1.02);
+}
+.tab li.split {
+  float: right;
+}
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+.userProfile {
+  text-align: right;
+}
