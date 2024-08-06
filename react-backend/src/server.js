@@ -27,12 +27,12 @@ export default class Server {
   constructor() {
     app.use(json());
     app.use(cors({ 
-        origin: "https://185.151.30.216",
+        origin: "https://104.237.128.194:3001",
         methods: 'GET,POST', // Allowed methods
         allowedHeaders: 'Content-Type,Authorization',
       }));
     app.use(function (req, res, next) {
-      res.setHeader('Access-Control-Allow-Origin', 'https://185.151.30.216');
+      res.setHeader('Access-Control-Allow-Origin', 'https://104.237.128.194:3001');
       res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
       res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
       res.setHeader('Access-Control-Allow-Credentials', true);
@@ -40,7 +40,7 @@ export default class Server {
       next();
     });
     app.options('*', (req, res) => {
-      res.header('Access-Control-Allow-Origin', 'https://185.151.30.216');
+      res.header('Access-Control-Allow-Origin', 'https://104.237.128.194:3001');
       res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
       res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization');
       res.send();
