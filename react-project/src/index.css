@@ -3,31 +3,91 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
+  max-width: 1280px;
+  padding: 1.3rem;
+  margin: 0 auto;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #0c0325;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+@keyframes move {
+  100% {
+      transform: translate3d(0, 0, 1px) rotate(360deg);
+  }
 }
 
-body {
-  margin: 0;
-  display: flex;
-  min-width: 320px;
-  min-height: 100vh;
+
+.background {
+  padding: 1.3rem;
+  margin: 0 auto;
+  top: 0;
+  left: 0;
+  background: #0c0325;
+  max-width: 1280px;
+}
+
+.background span {
+  width: 6vmin;
+  height: 6vmin;
+  max-width: 1280px;
+  border-radius: 6vmin;
+  backface-visibility: hidden;
+  position: absolute;
+  animation: move;
+  animation-duration: 30;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.background span:nth-child(0) {
+  color: #583c87;
+  top: 21%;
+  left: 81%;
+  animation-duration: 184s;
+  animation-delay: -87s;
+  transform-origin: 14vw -1vh;
+  box-shadow: 12vmin 0 2.0474204261733906vmin currentColor;
+}
+.background span:nth-child(1) {
+  color: #241f31;
+  top: 44%;
+  left: 91%;
+  animation-duration: 12s;
+  animation-delay: -12s;
+  transform-origin: 0vw -9vh;
+  box-shadow: -12vmin 0 2.2604870985055756vmin currentColor;
+}
+.background span:nth-child(2) {
+  color: #9141ac;
+  top: 56%;
+  left: 77%;
+  animation-duration: 84s;
+  animation-delay: -43s;
+  transform-origin: 5vw 3vh;
+  box-shadow: 12vmin 0 2.039858485904881vmin currentColor;
+}
+.background span:nth-child(3) {
+  color: #241f31;
+  top: 50%;
+  left: 90%;
+  animation-duration: 202s;
+  animation-delay: -124s;
+  transform-origin: -5vw 13vh;
+  box-shadow: 12vmin 0 2.1293166380044894vmin currentColor;
+}
+.background span:nth-child(4) {
+  color: #9141ac;
+  top: 85%;
+  left: 16%;
+  animation-duration: 8s;
+  animation-delay: -106s;
+  transform-origin: -15vw -10vh;
+  box-shadow: 12vmin 0 2.200601072244097vmin currentColor;
 }
 
 h1 {
@@ -35,12 +95,3 @@ h1 {
   line-height: 1.1;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-}

@@ -21,6 +21,7 @@ export function HandlePost() {
     getPosts()
       .then((response) => {
         setPosts(response.data);
+        console.log(response.data)
       })
       .catch((error) => {
         console.error("Error retrieving posts", error);
@@ -30,7 +31,9 @@ export function HandlePost() {
 
   return (
     <>
-      <article>
+        <div className="postHeader">
+          <h1>Community Posts</h1>
+        </div>
         <ul className="postlist">
           {posts == null ? <p>No posts</p> : posts.map((post, index) => (
             <>
@@ -39,15 +42,14 @@ export function HandlePost() {
                 key={index}
                 onClick={() => handleShow(index)}
               >
-                <h2>{post.title}</h2>
-                <p className="cxt">{post.content}</p>
+                <h2>{post.content}</h2>
                 <div className="admin-user-badge">
                   <img
                     className="adminpfp"
-                    src="https://yt3.googleusercontent.com/7x2-0ytnmRutv5id2TmfD71IaPzQyVoJPC4keywIsMg-66zqL8FyLZsdylvImFDM-EGZNTdgXQ=s160-c-k-c0x00ffffff-no-rj"
-                    alt="Desmond Ward"
+                    src={post.user.pfp}
+                    alt={post.user.username}
                   />
-                  <p>DeeBeHygh</p>
+                  <p>{post.user.username}</p>
                 </div>
               </li>
               <div
@@ -65,20 +67,17 @@ export function HandlePost() {
                   centered
                 >
                   <Modal.Header closeButton>
-                    <Modal.Title style={{ textAlign: "center" }}>
-                      {post.title}
-                    </Modal.Title>
                   </Modal.Header>
                   <Modal.Body>{post.content}</Modal.Body>
                   <Modal.Footer>
-                    <Modal.Dialog>Uploaded by DeeBeHygh {img}</Modal.Dialog>
+                    <Modal.Dialog>Uploaded by {post.user.username} </Modal.Dialog>
                   </Modal.Footer>
                 </Modal>
               </div>
             </>
           ))}
         </ul>
-      </article>
+      
     </>
   );
 }

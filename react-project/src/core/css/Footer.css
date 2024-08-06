@@ -1,0 +1,9 @@
+.footer {
+    text-align: center;
+    font-weight: 200;
+    margin: 30px auto;
+}
+.footer p {
+    display: inline;
+    margin: 0 2px;
+}

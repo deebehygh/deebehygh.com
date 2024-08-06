@@ -1,83 +1,84 @@
-#root {
-  max-width: 1280px;
-  padding: 1.3rem;
-  margin: 0 auto;
-}
-
-#bg {
-  margin: 0 auto;
-  border-radius: 25px;
-  width: auto;
-  height: 100%;
-  padding: 0.625em 0.625em;
-  background-color:#242a2e;
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-.myprofile {
-  display: flex;
-  padding: 0.625em;
-}
-.myprofile .pfp {
-  border-radius: 50%;
-  float: left;
-  height: auto;
-  width: auto;
-}
 .banner {
   margin: 0 auto;
   border-radius: 12px;
   width: 100%;
 }
-.myprofile p {
-  margin: 0 1em;
+.banner h1 {
+  font-size: 95px;
+  padding: 0.5em 0;
 }
-.myprofile span.namename {
-  font-size: 2em;
+.socialLinks a {
+  margin: 10px;
 }
-.contactInfo {
-  margin-left: 350px;
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns of equal width */
+  gap: 16px; 
+  padding: 16px;
 }
-.contactInfo svg {
-  margin-right: 20px;
-  transition: 0.56s;
+
+.my-work-card {
+  margin: 0;
+  transition: 0.15s;
 }
-.contactInfo svg:hover {
-  filter: drop-shadow(0 0 20px #5e66f55b);
+.my-work-card:hover{
+  transform: scale(1.02);
 }
-.followBtn {
-  border-radius: 10px;
-  height: 2.3em;
-  margin: auto 0;
-  background-color: transparent;
-  font-family: 'Lucida Sans', Arial;
+.my-work-card {
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  margin: 16px;
+  text-align: center;
+  background-color: #fff;
+}
+
+.my-work-card-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.my-work-card-title {
+  font-size: 1.7em;
+  margin: 16px 0;
+  color: #555;
+  font-weight: 600;
+}
+
+.my-work-card-description {
+  font-size: 1em;
+  color: #555;
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+hr.solid {
+  border-top: 3px solid #bbb;
+  width: auto;
 }
 .tab {
   overflow: hidden;
+}
+.tab img {
+  float: left;
+  width: 48px;
+  height: auto;
+  border-radius: 50%;
 }
 .tab ul {
   list-style: none;
 }
 .tab li {
-  float: left;
+  float: right;
   background-color: inherit;
   cursor: pointer;
   padding: 14px 16px;
   transition: 0.3s;
 }
 .tab li:hover {
-  text-decoration: underline;
-  transform: scale(1.02);
-}
-.tab li.split {
-  float: right;
+  transform: scale(1.05);
 }
 .tabcontent {
   display: none;
@@ -85,6 +86,6 @@
   border: 1px solid #ccc;
   border-top: none;
 }
-.userProfile {
-  text-align: right;
+.home .services {
+  margin: 50px 0;
 }

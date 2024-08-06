@@ -1,0 +1,47 @@
+.userProfile {
+    border: 25px 25px;
+    padding: 0.625em 0.625em;
+    width: auto;
+    height: 100%;
+}
+.userProfile .usernameButton {
+    display: flex;
+}
+.userProfile svg {
+    margin: auto 20px;
+    color: blueviolet;
+    width: 40px;
+    height: 40px;
+}
+.userProfileInfo {
+    margin: 1em 20em;
+}
+.userPfp {
+    float: left;
+}
+.userPfp img {
+    width: 250px;
+    height: 250px;
+}
+.userInfo {
+    margin: 0 auto;
+}
+.userStats {
+    display: flex;
+    margin: auto 0;
+    font-size: 20px;
+}
+.userStats .statName {
+    margin: 0 10px;
+}
+.userTabs {
+    margin: 100px 0;
+}
+.socialLinks a {
+    color: azure;
+    text-decoration: solid;
+    font-weight: 400;
+}
+.socialLinks a:hover {
+    text-decoration: underline;
+}

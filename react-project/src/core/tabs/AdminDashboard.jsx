@@ -1,10 +1,9 @@
-import PostForm from '../components/PostForm';
+import PostForm from '../components/Admin/PostForm';
 
-export default function AdminDashboard({ token }) {
+export default function AdminDashboard({ profile, token }) {
   return (
     <div>
-      <h1>Admin Page</h1>
-      <PostForm token={token} />
+      <PostForm profile={profile} token={token} />
     </div>
   );
 }

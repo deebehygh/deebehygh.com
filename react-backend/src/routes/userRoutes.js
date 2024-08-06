@@ -23,7 +23,7 @@ export default (utils, db, secretKey, bcrypt, jwt) => {
         const newUser = { id: nextId++, guid: email, password: hash, isAdmin: false };
         
         await db.client.HSET(`users`, username, JSON.stringify(newUser));
-        await db.client.HSET(`user:${email}:info`, {
+        await db.client.HSET(`user:${username}:info`, {
           id: nextId++,
           guid: email,
           username: username,
@@ -33,6 +33,7 @@ export default (utils, db, secretKey, bcrypt, jwt) => {
           socialLink: '',
           phoneNumber: '',
           totalFollowers: 0,
+          totalFollowing: 0,
           totalPosts: 0,
           isAdmin: false
         })

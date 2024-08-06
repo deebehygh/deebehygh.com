@@ -9,6 +9,7 @@ import SignupAndLogin from "./tabs/SignupLogin";
 import AdminDashboard from "./tabs/AdminDashboard";
 import Profile from './components/Profile';
 import Loader from './components/Loader';
+import Home from "./components/Home";
 
 export default function Main() {
   const [token, setToken] = useState(localStorage.getItem("token") || "");
@@ -22,7 +23,6 @@ export default function Main() {
     const storedProfile = localStorage.getItem('profile');
     const handleStart = () => setLoading(true);
     const handleComplete = () => setLoading(false);
-
     handleStart();
     handleComplete();
 
@@ -31,7 +31,7 @@ export default function Main() {
     setInterval(() => {
         setResponse("");
     }, 1000 * 5);
-      
+
     return () => {
       handleComplete();
     }
@@ -40,35 +40,43 @@ export default function Main() {
   return (
     <>
       <div className="tab">
+        <img
+            className="pfp"
+            src="https://yt3.googleusercontent.com/7x2-0ytnmRutv5id2TmfD71IaPzQyVoJPC4keywIsMg-66zqL8FyLZsdylvImFDM-EGZNTdgXQ=s160-c-k-c0x00ffffff-no-rj"
+            alt="Desmond Ward"
+          />
         <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/portfolio">Portfolio</Link></li>
-          {token && admin && <li><Link to="/admin">Admin Panel</Link></li>}
-          {!token ? ( <li className="split"><Link to="/auth">Signup/Login</Link></li> ) : ( <li className="split"><Link to="/auth">Logout</Link></li> )}
-          {token && <li className="split"><Link to="/profile">Account</Link></li>}
+          {!token ? ( <li><Link style={{ color: "white" }} to="/auth">Signup/Login</Link></li> ) : ( <li><Link  style={{ color: "white" }}to="/auth">Logout</Link></li> )}
+          {token && <li><Link style={{ color: "white" }} to="/profile">Account</Link></li>}
+          
+          <li><Link style={{ color: "white" }}to="/community">Community</Link></li>
+          <li><Link style={{ color: "white" }}to="/">Home</Link></li>      
         </ul>
       </div>
+      
+      <hr className="solid"/>
       {loading && <Loader />}
       {response && <p style={{ textAlign: "center"}}>{response}</p>}
+
       <Routes>
         <Route path="/auth" 
           element={
             <SignupAndLogin
-            token={token}
-            setToken={setToken}
-            role={admin}
-            setRole={setRole}
-            setProfile={setProfile}
-            setResponse={setResponse}
-            setTabIndex={setTabIndex}
-            />}/>
-        <Route path="/" element={<HandlePost />} />
-        <Route path="/portfolio" element={<PortfolioList />} />
-        {token && <Route path="/profile" element={<Profile profile={profile} />} />}
-        {admin && (<Route path="/admin" element={<AdminDashboard token={token} />} />)}
+              token={token}
+              setToken={setToken}
+              role={admin}
+              setRole={setRole}
+              setProfile={setProfile}
+              setResponse={setResponse}
+              setTabIndex={setTabIndex}
+            />
+          }
+        />
+        <Route path="/" element={<Home />} />
+        <Route path="/community" element={<HandlePost/>}/>
+        {token && <Route path="/profile" element={<Profile profile={profile} token={token}/>} />}
         <Route path="*" element={<Navigate to="/" replace />}/>
       </Routes>
-      
     </>
   )
 

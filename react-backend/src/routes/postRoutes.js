@@ -15,19 +15,22 @@ export default (utils, db, secretKey) => {
 
   //Create Post
   router.post("/", async (req, res) => {
-    const { title, content } = req.body;
+    const { profile, content } = req.body;
     const posts = await db.client.json.get('posts');
-    if (!posts) 
-      await db.client.json.set('posts', '$', [{ title: title, content: content }]);
-     else 
-      await db.client.json.arrAppend('posts', '$', { title: title, content: content })
+    const userPosts = await db.client.json.get(`user:${profile.username}:posts`);
+    
+    if (!posts) await db.client.json.set('posts', '$', [{ user: profile, content: content }]);
+    else await db.client.json.arrAppend('posts', '$', { user: profile, content: content });
+
+    if (!userPosts) await db.client.json.set(`user:${profile.username}:posts`, '$', [{  content: content }]);
+    else await db.client.json.arrAppend(`user:${profile.username}:posts`, '$', { content: content });
   
     return res.json({ message: "Post Created" });
   });
 
   router.get('/', async(req, res) => {
     const posts = await db.client.json.get('posts');
-    if (!posts || posts == null) {
+    if (!posts || posts == null || posts == undefined) {
       return res.json(null);
     }
       

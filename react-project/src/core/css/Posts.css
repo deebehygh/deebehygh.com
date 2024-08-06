@@ -26,7 +26,11 @@
 .admin-user-badge .adminpfp {
     border-radius: 50%;
     width: 10%;
+    margin: -10px 0;
 }
 .admin-user-badge p {
     margin: 0 10px;
+}
+.postHeader h1 {
+    text-align: center;
 }
