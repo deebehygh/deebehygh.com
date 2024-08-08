@@ -19,6 +19,12 @@ import postRoutes from "./routes/postRoutes.js";
 
 const { json } = pkg;
 const app = express();
+const corOptions = {
+  origin: "*",
+  methods: 'GET,POST', // Allowed methods
+  allowedHeaders: 'Content-Type,Authorization',
+  optionsSuccessStatus: 200,
+}
 
 export default class Server {
   db = new Database();
@@ -26,25 +32,8 @@ export default class Server {
 
   constructor() {
     app.use(json());
-    app.use(cors({ 
-        origin: "https://104.237.128.194:3001",
-        methods: 'GET,POST', // Allowed methods
-        allowedHeaders: 'Content-Type,Authorization',
-      }));
-    app.use(function (req, res, next) {
-      res.setHeader('Access-Control-Allow-Origin', 'https://104.237.128.194:3001');
-      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-      res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-      res.setHeader('Access-Control-Allow-Credentials', true);
-      console.log(`${req.method} request for '${req.url}'`);
-      next();
-    });
-    app.options('*', (req, res) => {
-      res.header('Access-Control-Allow-Origin', 'https://104.237.128.194:3001');
-      res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
-      res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization');
-      res.send();
-    });
+    app.use(cors(corOptions));
+
     this.handle_events();
   }
 
