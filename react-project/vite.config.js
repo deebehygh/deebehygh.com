@@ -6,6 +6,10 @@ export default defineConfig({
   plugins: [react()],
   server: {
     host: 'deebehygh.com',
+<<<<<<< HEAD
     port: 3000,
+=======
+    port: 443,
+>>>>>>> refs/remotes/origin/main
   }
 })
