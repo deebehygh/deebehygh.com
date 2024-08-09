@@ -7,6 +7,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import path from "path";
 import https from "https"
+import fs from "node:fs";
 
 import authenticateToken  from './middleware/authenticateToken.js';
 import { authenticateAdmin } from './middleware/authenticateAdmin.js';
@@ -41,12 +42,12 @@ export default class Server {
     console.log("Attemping to Handling Requests");
 
     //User Routes
-    app.use('/api/user', userRoutes(this.utils, this.db, process.env.SECRET, bcrypt, jwt));
-    app.use('/api/posts', postRoutes(this.utils, this.db, process.env.SECRET));
+    app.use('/api/user', cors(corOptions), userRoutes(this.utils, this.db, process.env.SECRET, bcrypt, jwt));
+    app.use('/api/posts', cors(corOptions), postRoutes(this.utils, this.db, process.env.SECRET));
   };
 
   start = () => {
-    app.listen(process.env.ADDRESS, process.env.PORT, () => {
+    app.listen(process.env.PORT, () => {
       console.log(
         `Running on https://${process.env.ADDRESS}:${process.env.PORT}`
       );

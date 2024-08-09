@@ -4,7 +4,8 @@
   "main": "src/app.js",
   "type": "module",
   "scripts": {
-    "start": "node ./src/app.js"
+    "start": "node ./src/app.js",
+    "dev": "pm2 start ./src/app.js --name "Backend" --watch",
   },
   "keywords": [],
   "author": "",
